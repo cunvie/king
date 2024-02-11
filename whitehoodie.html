@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>White Hoodie</title>
+    <style>
+        body {
+            background-color: #3C091a;
+            color: #d3a140;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+
+        section {
+            text-align: center;
+            padding: 20px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #d3a140;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        a.button {
+            background-color: #fff;
+            color: #3C091a;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>White Hoodie</h1>
+    </header>
+
+    <section>
+        <img id="sliderImage" src="clothes/whitefront.png" alt="White Hoodie Front">
+        <p>Made from a 100% cotton the hoodie is comfortable. For a daily basis wear</p>
+        <p>Price: $29.99</p>
+        <a href="/client/checkout.html" class="button">Purchase </a>
+    </section>
+
+    <footer>
+        <p>Contact us at kingcunvie@gmail.com</p>
+    </footer>
+
+    <script>
+        // Image slider functionality
+        const sliderImages = ["clothes/whitefront.png", "clothes/whiteback.png"]; // Add the path to your second image
+
+        let currentImageIndex = 0;
+
+        function changeImage() {
+            currentImageIndex = (currentImageIndex + 1) % sliderImages.length;
+            const sliderImage = document.getElementById("sliderImage");
+            sliderImage.style.opacity = 0;
+            setTimeout(() => {
+                sliderImage.src = sliderImages[currentImageIndex];
+                sliderImage.style.opacity = 1;
+            }, 500);
+        }
+
+        setInterval(changeImage, 5000); // Change image every 5 seconds
+    </script>
+</body>
+</html>
