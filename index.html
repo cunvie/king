@@ -138,23 +138,7 @@
         <input type="email" name="email" placeholder="Enter your email" style="padding: 5px; margin: 10px; width: 200px;">
         <input type="submit" value="Subscribe" style="background-color: #3C091a; color: #d3a140; padding: 5px 10px; border: none; cursor: pointer;">
     </form>
-        <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
-
-            // Validate the email address
-            if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-                // Save the email address to a file (for demonstration)
-                $file = "subscribers.txt";
-                file_put_contents($file, $email . PHP_EOL, FILE_APPEND);
-
-                echo "<p style=\"color: #d3a140;\">Subscription successful! Thank you for subscribing.</p>";
-            } else {
-                echo "<p style=\"color: #d3a140;\">Invalid email address. Please try again.</p>";
-            }
-        }
-        ?>
-    </div>
+        
 </div>
 
 
