@@ -65,6 +65,42 @@
             margin: 0 15px;
         }
 
+        .subscription {
+            background-color: #111214;
+            text-align: center;
+            padding: 20px;
+            color: #d3a140;
+        }
+
+        .news-article {
+            background-color: #111214;
+            text-align: center;
+            padding: 20px;
+            color: #d3a140;
+        }
+
+        .news-article h2,
+        .subscription h2 {
+            color: #d3a140;
+        }
+
+        .news-article p,
+        .subscription p {
+            color: #d3a140;
+        }
+
+        .news-article a,
+        .subscription a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-top: 10px;
+            display: block;
+            background-color: #d3a140;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
         .view-counter {
             color: #d3a140;
             font-size: 24px;
@@ -74,10 +110,6 @@
             padding: 10px;
             border-radius: 5px;
             animation: countUp 2s ease-out;
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
         }
 
         @keyframes countUp {
@@ -137,9 +169,9 @@
         <p>Welcome to King Cunvie! We specialize in providing high-quality clothing and fashion items. Our mission is to offer stylish and comfortable apparel for every occasion. Explore our collection and find the perfect addition to your daily style.</p>
     </div>
 
-    <div class="subscription" style="background-color: #111214; text-align: center; padding: 20px;">
-        <h2 style="color: #d3a140;">Subscribe to our Newsletter</h2>
-        <p style="color: #d3a140;">Stay updated with our latest arrivals and exclusive offers!</p>
+    <div class="subscription">
+        <h2>Subscribe to our Newsletter</h2>
+        <p>Stay updated with our latest arrivals and exclusive offers!</p>
         <form action="subscribe.php" method="post" style="margin-top: 10px;">
             <input type="email" name="email" placeholder="Enter your email" style="padding: 5px; margin: 10px; width: 200px;">
             <input type="submit" value="Subscribe" style="background-color: #3C091a; color: #d3a140; padding: 5px 10px; border: none; cursor: pointer;">
@@ -147,9 +179,9 @@
     </div>
 
     <div class="news-article">
-        <h2 style="color: #d3a140; text-align: center;">Latest News</h2>
-        <p style="color: #d3a140; text-align: center;">Check out our latest news articles to stay informed about fashion trends and updates.</p>
-        <a href="news.html" style="display: block; text-align: center; color: #ffffff; text-decoration: none; margin-top: 10px; background-color: #d3a140; padding: 10px 20px; font-size: 16px; border-radius: 5px;">Read More</a>
+        <h2>Latest News</h2>
+        <p>Check out our latest news articles to stay informed about fashion trends and updates.</p>
+        <a href="news.html">Read More</a>
     </div>
 
     <div class="view-counter" data-target-views="10000">0</div>
