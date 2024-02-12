@@ -176,6 +176,20 @@
         </div>
     </div>
 
+    <div id="scroll-right-arrow" style="background-color: #26384C; color: #d3a140; text-align: center; padding: 10px; cursor: pointer;">
+    &#9654; <!-- Right arrow Unicode character -->
+</div>
+
+<script>
+    var scrollContainer = document.querySelector('.scroll-container');
+    var scrollRightArrow = document.getElementById('scroll-right-arrow');
+
+    scrollRightArrow.addEventListener('click', function () {
+        scrollContainer.scrollLeft += 200; // Adjust the scrolling distance as needed
+    });
+</script>
+
+
     <div class="about-us">
         <h2>Know us Better</h2>
         <p>Welcome to King Cunvie! We specialize in providing high-quality clothing and fashion items. Our mission is to offer stylish and comfortable apparel for every occasion. Explore our collection and find the perfect addition to your daily style.</p>
