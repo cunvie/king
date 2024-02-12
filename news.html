@@ -13,6 +13,7 @@
         }
 
         .news-article {
+            position: relative;
             padding: 30px;
             text-align: center;
             margin-bottom: 20px;
@@ -28,6 +29,14 @@
             line-height: 1.6;
         }
 
+        .news-article .date {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 14px;
+            color: #d3a140;
+        }
+
         .news-article:nth-child(odd) {
             background-color: #3C091a;
         }
@@ -41,11 +50,13 @@
 <body>
 
     <div class="news-article">
+        <div class="date">February 12, 2024</div>
         <h2>New Sizes Added</h2>
         <p>Exciting news! We have expanded our size range to ensure everyone finds their perfect fit. Check out our latest additions and enjoy a wider variety of sizes.</p>
     </div>
 
     <div class="news-article">
+        <div class="date">February 12, 2024</div>
         <h2>Follow us on Instagram</h2>
         <p>Discover the latest fashion trends and see how our amazing customers rock King Cunvie styles on Instagram. Follow us <a href="https://instagram.com/itskingcunvie" style="color: #FFD700;">@itskingcunvie</a> for daily inspiration!</p>
     </div>
