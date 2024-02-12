@@ -124,8 +124,6 @@
 
 <body>
 
-<body>
-
     <!-- Menu -->
     <div class="menu">
         <a href="#">Home</a>
@@ -152,28 +150,58 @@
     </script>
 
     <div class="scroll-container">
-        <!-- Your clothing items... -->
+        <div class="clothing-item">
+            <a href="whitehoodie.html">
+                <img src="whitefront.png">
+                <p>White Hoodie </p>
+            </a>
+        </div>
+        <div class="clothing-item">
+            <a href="bluesport.html">
+                <img src="skybluefront.png">
+                <p>SkyBlue Sport Tracksuit</p>
+            </a>
+        </div>
+        <div class="clothing-item">
+            <a href="greysocks.html">
+                <img src="greysocks.png">
+                <p>Grey Socks</p>
+            </a>
+        </div>
+        <div class="clothing-item">
+            <a href="item4_link.html">
+                <img src="item4.jpg">
+                <p>Not Available</p>
+            </a>
+        </div>
     </div>
 
     <div class="about-us">
-        <!-- Your "Know us Better" section... -->
+        <h2>Know us Better</h2>
+        <p>Welcome to King Cunvie! We specialize in providing high-quality clothing and fashion items. Our mission is to offer stylish and comfortable apparel for every occasion. Explore our collection and find the perfect addition to your daily style.</p>
     </div>
 
     <div class="subscription">
-        <!-- Your subscription form... -->
+        <h2>Subscribe to our Newsletter</h2>
+        <p>Stay updated with our latest arrivals and exclusive offers!</p>
+        <form action="subscribe.php" method="post" style="margin-top: 10px;">
+            <input type="email" name="email" placeholder="Enter your email" style="padding: 5px; margin: 10px; width: 200px;">
+            <input type="submit" value="Subscribe" style="background-color: #3C091a; color: #d3a140; padding: 5px 10px; border: none; cursor: pointer;">
+        </form>
     </div>
 
     <div class="news-article">
-        <!-- Your latest news section... -->
+        <h2>Latest News</h2>
+        <p>Check out our latest news articles to stay informed about fashion trends and updates.</p>
+        <a href="news.html">Read More</a>
     </div>
 
-    <!-- Modified view counter with text description -->
-    <div class="view-counter" data-target-views="7231">Total Views: <span id="counterValue">0</span></div>
+    <div class="view-counter" data-target-views="7231">0</div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            var counterElement = document.getElementById('counterValue');
-            var targetViews = parseInt(counterElement.parentNode.getAttribute('data-target-views'));
+            var counterElement = document.querySelector('.view-counter');
+            var targetViews = parseInt(counterElement.getAttribute('data-target-views'));
             var currentViews = 0;
 
             function updateCounter() {
