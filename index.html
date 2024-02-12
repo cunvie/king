@@ -200,24 +200,25 @@
 
 
     <div class="trending" style="background-color: #26384C; color: #d3a140; text-align: center; padding: 20px;">
-        <h2>Trending Now</h2>
-        <a href="whitehoodie.html">
-            <img src="whitefront.png" id="trendingImage">
-        </a>
-        <script>
-            var trendingImage = document.getElementById('trendingImage');
-            var trendingImages = ['whitefront.png, 'whiteback.png]; // Replace with your image file names
-            var currentTrendingImageIndex = 0;
+    <h2>Trending Now</h2>
+    <a href="whitehoodie.html">
+        <img src="whitefront.png" id="trendingImage" style="max-width: 100%; height: auto;">
+    </a>
+    <script>
+        var trendingImage = document.getElementById('trendingImage');
+        var trendingImages = ['image1.jpg', 'image2.jpg']; // Replace with your image file names
+        var currentTrendingImageIndex = 0;
 
-            function changeTrendingImage() {
-                trendingImage.src = trendingImages[currentTrendingImageIndex];
-                currentTrendingImageIndex = (currentTrendingImageIndex + 1) % trendingImages.length;
-            }
+        function changeTrendingImage() {
+            trendingImage.src = trendingImages[currentTrendingImageIndex];
+            currentTrendingImageIndex = (currentTrendingImageIndex + 1) % trendingImages.length;
+        }
 
-            setInterval(changeTrendingImage, 3000); // Change image every 3 seconds
-        </script>
-        <p>Discover the latest trends and must-have items in our collection.</p>
-    </div>
+        setInterval(changeTrendingImage, 3000); // Change image every 3 seconds
+    </script>
+    <p>Discover the latest trends and must-have items in our collection.</p>
+</div>
+
 
     
 </body>
