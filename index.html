@@ -198,28 +198,6 @@
         <a href="news.html">Read More</a>
     </div>
 
-    <div class="view-counter" data-target-views="7231">0</div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var counterElement = document.querySelector('.view-counter');
-            var targetViews = parseInt(counterElement.getAttribute('data-target-views'));
-            var currentViews = 0;
-
-            function updateCounter() {
-                currentViews += Math.ceil(targetViews / 100); // Increase by 1% of the target on each update
-                counterElement.textContent = currentViews;
-
-                if (currentViews < targetViews) {
-                    requestAnimationFrame(updateCounter);
-                }
-            }
-
-            // Start the counter when the document is ready
-            updateCounter();
-        });
-    </script>
-
 </body>
 
 </html>
