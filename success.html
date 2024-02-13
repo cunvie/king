@@ -41,36 +41,38 @@
     <p>Continue shopping or <a href="index.html">return to the homepage</a>.</p>
 
     <script>
-        // Dummy order details for illustration purposes
-        var dummyOrderDetails = {
-            payer: {
-                name: {
-                    given_name: "John",
-                    surname: "Doe"
-                }
-            },
-            // Include any other relevant order details here
-        };
+    // Dummy order details for illustration purposes
+    var dummyOrderDetails = {
+        payer: {
+            name: {
+                given_name: "John",
+                surname: "Doe"
+            }
+        },
+        // Include any other relevant order details here
+    };
 
-        // Redirect to success page after 2 seconds
+    // Send email on successful payment
+    fetch('/send-email', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            orderDetails: dummyOrderDetails,
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        // Introduce a delay before redirecting to ensure email sending completes
         setTimeout(function () {
             window.location.href = 'success.html';
-        }, 2000);
+        }, 2000); // Adjust the delay (in milliseconds) as needed
+    })
+    .catch(error => console.error('Error:', error));
+</script>
 
-        // Send email on successful payment
-        fetch('/send-email', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                orderDetails: dummyOrderDetails,
-            }),
-        })
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(error => console.error('Error:', error));
-    </script>
 
 </body>
 
