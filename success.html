@@ -13,68 +13,40 @@
             margin: 0;
             padding: 0;
             text-align: center;
-            padding-top: 50px;
         }
 
-        h1 {
-            margin-bottom: 20px;
+        .success-container {
+            padding: 20px;
         }
 
-        p {
-            font-size: 18px;
-            margin-bottom: 10px;
-        }
-
-        a {
+        #track-code {
+            background-color: #26384C;
             color: #d3a140;
-            text-decoration: none;
-            font-weight: bold;
+            padding: 10px;
+            margin-top: 20px;
         }
     </style>
 </head>
 
 <body>
-    <h1>Payment Successful!</h1>
-
-    <p>Thank you for your order. We've send the order and shortlyare gonna send it to you</strong>.</p>
-
-    <p><a href="track.html">Track Order</a> or <a href="index.html">return to the homepage</a>.</p>
+    <div class="success-container">
+        <h1>Your payment was successful!</h1>
+        
+        <!-- Display the track code here -->
+        <div id="track-code"></div>
+    </div>
 
     <script>
-    // Dummy order details for illustration purposes
-    var dummyOrderDetails = {
-        payer: {
-            name: {
-                given_name: "John",
-                surname: "Doe"
-            }
-        },
-        // Include any other relevant order details here
-    };
+        // Function to generate a unique order code
+        function generateOrderCode() {
+            // Implement your logic to generate a unique order code
+            // For example, you can use a combination of date, user ID, and random characters
+            return 'ORDER_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5);
+        }
 
-    // Send email on successful payment
-    fetch('/send-email', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            orderDetails: dummyOrderDetails,
-        }),
-    })
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-        // Introduce a delay before redirecting to ensure email sending completes
-        setTimeout(function () {
-            window.location.href = 'success.html';
-        }, 2000); // Adjust the delay (in milliseconds) as needed
-    })
-    .catch(error => console.error('Error:', error));
-</script>
-
-    
-
+        // Display the generated order code
+        document.getElementById('track-code').innerHTML = '<p>Order Code: ' + generateOrderCode() + '</p>';
+    </script>
 </body>
 
 </html>
