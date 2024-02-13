@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,16 +49,18 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <h1>Grey Socks</h1>
     </header>
 
     <section>
-        <img id="sliderImage" src="greysocks.png" alt="White Hoodie Front">
+        <img id="sliderImage" src="greysocks.png" alt="Grey Socks">
         <p>Crafted with meticulous attention to detail.</p>
         <p>Price: $17.99</p>
-        <a href="checkout2.html" class="button">Purchase </a>
+        <!-- Update the checkout link to match your cart page -->
+        <a href="cart.html" class="button" onclick="addToCart('Grey Socks', 17.99)">Add to Cart</a>
     </section>
 
     <footer>
@@ -66,7 +69,7 @@
 
     <script>
         // Image slider functionality
-        const sliderImages = ["greysocks.png"]; // Add the path to your second image
+        const sliderImages = ["greysocks.png"];
 
         let currentImageIndex = 0;
 
@@ -81,6 +84,21 @@
         }
 
         setInterval(changeImage, 100000); // Change image every 5 seconds
+
+        // Function to add item to cart and redirect to cart page
+        function addToCart(itemName, itemPrice) {
+            var cartItem = {
+                itemName: itemName,
+                price: itemPrice
+            };
+
+            var cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push(cartItem);
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            alert("Item added to cart!");
+        }
     </script>
 </body>
+
 </html>
