@@ -8,19 +8,37 @@
     <style>
         body {
             background-color: #3C091a !important;
-            color: white;
+            color: #d3a140;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #paypal-button-container {
+            margin-top: 20px;
+        }
+
+        p {
+            margin: 10px 0;
+            font-size: 18px;
         }
     </style>
 </head>
 
 <body>
 
+<!-- Product Information -->
+<p style="font-size: 24px;">Product Price: <span style="font-weight: bold;">$49.99</span></p>
+<p style="font-size: 20px;">Free Delivery</p>
+
 <!-- PayPal Button Container -->
 <div id="paypal-button-container"></div>
-
-<!-- Product Information -->
-<p>Product Price: $49.99</p>
-<p>Free Delivery</p>
 
 <!-- Include the PayPal JavaScript SDK -->
 <script src="https://www.paypal.com/sdk/js?client-id=AVR0zfOPWGCuVfmCotd1XdNC-TodaRjBf8Ne-Rmneo1fByG_SmqAfYq46n8ae4ouYvmnqfZVXeEi6e7x"></script>
