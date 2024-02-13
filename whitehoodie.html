@@ -195,6 +195,32 @@
 
         setInterval(changeImage, 5000); // Change image every 5 seconds
     </script>
+
+<script>
+    // Function to add item to cart
+    function addToCart() {
+        var selectedSize = document.getElementById('size').value;
+        if (selectedSize !== "") {
+            // Assuming you have a cart object or array to store items
+            var cartItem = {
+                size: selectedSize,
+                itemName: "White Hoodie",
+                price: 49.99
+            };
+
+            // You can use localStorage, session storage, or an array to store cart items
+            // Here, using localStorage as an example
+            var cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push(cartItem);
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            alert("Item added to cart!");
+        } else {
+            alert("Please select a size before adding to the cart.");
+        }
+    }
+</script>
+
 </body>
 
 </html>
