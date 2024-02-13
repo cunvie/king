@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PayPal Checkout</title>
+    <title>Checkout</title>
     <style>
         body {
             background-color: #3C091a !important;
@@ -64,6 +64,9 @@
 
                 // Send email notification (example, requires server-side implementation)
                 sendEmail(details.payer.email_address, document.getElementById('size').value);
+
+                // Redirect to payment.html after successful payment
+                window.location.href = 'payment.html';
             });
         }
     }).render('#paypal-button-container');
