@@ -197,7 +197,7 @@
     </script>
 
 <script>
-    // Function to add item to cart
+    // Function to add item to cart and redirect to cart page
     function addToCart() {
         var selectedSize = document.getElementById('size').value;
         if (selectedSize !== "") {
@@ -215,11 +215,14 @@
             localStorage.setItem('cart', JSON.stringify(cart));
 
             alert("Item added to cart!");
+            // Redirect to the cart page after adding to the cart
+            window.location.href = 'cart.html';
         } else {
             alert("Please select a size before adding to the cart.");
         }
     }
 </script>
+
 
 </body>
 
