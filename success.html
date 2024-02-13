@@ -19,11 +19,22 @@
             padding: 20px;
         }
 
-        #track-code {
+        #order-code {
             background-color: #26384C;
             color: #d3a140;
             padding: 10px;
             margin-top: 20px;
+        }
+
+        #track-text {
+            margin-top: 20px;
+        }
+
+        #back-to-home {
+            display: block;
+            margin-top: 20px;
+            color: #d3a140;
+            text-decoration: none;
         }
     </style>
 </head>
@@ -32,20 +43,28 @@
     <div class="success-container">
         <h1>Your payment was successful!</h1>
         
-        <!-- Display the track code here -->
-        <div id="track-code"></div>
+        <!-- Display the generated order code -->
+        <div id="order-code"></div>
+
+        <!-- Track text -->
+        <div id="track-text">
+            <p>Track your order by using the order code provided above.</p>
+        </div>
+
+        <!-- Link to go back to the home page -->
+        <a href="index.html" id="back-to-home">Back to Home Page</a>
     </div>
 
     <script>
-        // Function to generate a unique order code
+        // Function to generate a simple order code
         function generateOrderCode() {
-            // Implement your logic to generate a unique order code
-            // For example, you can use a combination of date, user ID, and random characters
-            return 'ORDER_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5);
+            // Implement your logic to generate a simple order code
+            // For example, you can use a random number
+            return 'ORDER_' + Math.floor(Math.random() * 1000);
         }
 
         // Display the generated order code
-        document.getElementById('track-code').innerHTML = '<p>Order Code: ' + generateOrderCode() + '</p>';
+        document.getElementById('order-code').innerHTML = '<p>Order Code: ' + generateOrderCode() + '</p>';
     </script>
 </body>
 
