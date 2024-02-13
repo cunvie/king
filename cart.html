@@ -27,15 +27,42 @@
         var cartContent = document.getElementById('cart-content');
         var totalPriceElement = document.getElementById('total-price');
 
-        cart.forEach(function (item) {
-            var itemInfo = document.createElement('p');
-            itemInfo.textContent = 'Size: ' + item.size + ', Item: ' + item.itemName + ', Price: $' + item.price.toFixed(2);
-            cartContent.appendChild(itemInfo);
+        function displayCartItems() {
+            cartContent.innerHTML = ''; // Clear existing content
 
-            totalPrice += item.price;
-        });
+            cart.forEach(function (item, index) {
+                var itemInfo = document.createElement('p');
+                itemInfo.textContent = 'Item: ' + item.itemName + ', Price: $' + item.price.toFixed(2);
 
-        totalPriceElement.textContent = totalPrice.toFixed(2);
+                // Add a remove button with an onclick event to remove the item
+                var removeButton = document.createElement('button');
+                removeButton.textContent = 'Remove';
+                removeButton.onclick = function () {
+                    removeFromCart(index);
+                    displayCartItems();
+                };
+
+                // Append item info and remove button to the cart content
+                itemInfo.appendChild(removeButton);
+                cartContent.appendChild(itemInfo);
+
+                totalPrice += item.price;
+            });
+
+            totalPriceElement.textContent = totalPrice.toFixed(2);
+        }
+
+        function removeFromCart(index) {
+            // Remove the item at the specified index from the cart
+            if (index >= 0 && index < cart.length) {
+                totalPrice -= cart[index].price;
+                cart.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+            }
+        }
+
+        displayCartItems(); // Initial display
+
     </script>
 
     <!-- Include the PayPal SDK script -->
