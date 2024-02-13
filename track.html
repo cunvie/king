@@ -1,72 +1,24 @@
+<!-- order_tracking.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Track Order</title>
-    <style>
-        body {
-            background-color: #3C091a;
-            color: #d3a140;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        h1 {
-            text-align: center;
-        }
-
-        #order-details {
-            text-align: center;
-        }
-
-        button {
-            background-color: #26384C;
-            color: #d3a140;
-            border: none;
-            cursor: pointer;
-            padding: 5px 10px;
-            margin-top: 5px;
-        }
-    </style>
+    <title>Order Tracking</title>
 </head>
 
 <body>
-    <h1>Track Order Details</h1>
+    <h1>Order Tracking</h1>
 
-    <div id="order-details">
-        <!-- Order details will be displayed here dynamically -->
-    </div>
+    <form action="track.php" method="post">
+        <label for="orderID">Enter Order ID:</label>
+        <input type="text" id="orderID" name="orderID" required>
+        <input type="submit" value="Track Order">
+    </form>
 
-    <button onclick="goBack()">Go Back</button>
-
-    <script>
-        // Retrieve order details from localStorage or other data source
-        var orderDetails = JSON.parse(localStorage.getItem('orderDetails')) || {};
-
-        var orderDetailsContainer = document.getElementById('order-details');
-
-        // Display order details
-        if (Object.keys(orderDetails).length > 0) {
-            for (var key in orderDetails) {
-                var detailElement = document.createElement('p');
-                detailElement.textContent = key + ': ' + orderDetails[key];
-                orderDetailsContainer.appendChild(detailElement);
-            }
-        } else {
-            // Display a message if no order details are available
-            var noDetailsMessage = document.createElement('p');
-            noDetailsMessage.textContent = 'No order details available.';
-            orderDetailsContainer.appendChild(noDetailsMessage);
-        }
-
-        // Function to go back to the previous page
-        function goBack() {
-            window.history.back();
-        }
-    </script>
+    <!-- Display order details here based on the PHP script response -->
 
 </body>
 
