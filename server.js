@@ -14,13 +14,13 @@ app.post('/send-email', (req, res) => {
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'your-email@gmail.com',
-            pass: 'your-email-password',
+            user: 'kingcunvie@gmail.com',
+            pass: 'Snejanka_9',
         },
     });
 
     const mailOptions = {
-        from: 'your-email@gmail.com',
+        from: 'kingcunvie@gmail.com',
         to: 'kingcunvie@gmail.com',
         subject: 'Order Confirmation',
         text: `Thank you for your order! Details: ${JSON.stringify(orderDetails)}`,
