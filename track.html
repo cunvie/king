@@ -34,15 +34,24 @@
         }
     </style>
     <script>
-        // Function to get and display the order code from sessionStorage
+        // Function to get and display the order code and item statuses from sessionStorage
         function displayOrderDetails() {
             var orderCode = sessionStorage.getItem('order_code');
+            var itemStatuses = JSON.parse(sessionStorage.getItem('item_statuses'));
             var orderDetailsDiv = document.getElementById('order-details');
 
-            if (orderCode) {
+            if (orderCode && itemStatuses) {
                 orderDetailsDiv.innerHTML = "<h2>Your Order Code: " + orderCode + "</h2>";
+                orderDetailsDiv.innerHTML += "<h3>Item Statuses:</h3>";
+
+                // Display item statuses in a list
+                orderDetailsDiv.innerHTML += "<ul>";
+                itemStatuses.forEach(function (item) {
+                    orderDetailsDiv.innerHTML += "<li>" + item.name + " - " + item.status + "</li>";
+                });
+                orderDetailsDiv.innerHTML += "</ul>";
             } else {
-                orderDetailsDiv.innerHTML = "Order code not found.";
+                orderDetailsDiv.innerHTML = "Order code or item statuses not found.";
             }
         }
 
@@ -56,7 +65,7 @@
 
     <!-- Display order details here based on the JavaScript logic -->
     <div id="order-details">
-        <!-- Order code will be displayed here -->
+        <!-- Order code and item statuses will be displayed here -->
     </div>
 
     <!-- Link to go back to the home page -->
