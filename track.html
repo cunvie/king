@@ -48,24 +48,32 @@
         /* Add any additional styles as needed */
     </style>
     <script>
-        // Function to set the track code in local storage
-        function setTrackCode(trackCode) {
+        // Function to set the track code and purchased items in local storage
+        function setOrderDetails(trackCode, purchasedItems) {
             localStorage.setItem('track_code', trackCode);
+            localStorage.setItem('purchased_items', JSON.stringify(purchasedItems));
         }
 
-        // Function to get and display the track code from local storage
-        function displayTrackCode() {
+        // Function to get and display the track code and purchased items from local storage
+        function displayOrderDetails() {
             var trackCode = localStorage.getItem('track_code');
+            var purchasedItems = localStorage.getItem('purchased_items');
             var orderDetailsDiv = document.getElementById('order-details');
-            if (trackCode) {
-                orderDetailsDiv.innerHTML = "Your Track Code: " + trackCode;
+
+            if (trackCode && purchasedItems) {
+                purchasedItems = JSON.parse(purchasedItems);
+                orderDetailsDiv.innerHTML = "Your Track Code: " + trackCode + "<br>Purchased Items: <br>";
+
+                purchasedItems.forEach(function (item) {
+                    orderDetailsDiv.innerHTML += "- " + item + "<br>";
+                });
             } else {
-                orderDetailsDiv.innerHTML = "Track code not found.";
+                orderDetailsDiv.innerHTML = "Track code or purchased items not found.";
             }
         }
 
         // Call the function on page load
-        window.onload = displayTrackCode;
+        window.onload = displayOrderDetails;
     </script>
 </head>
 
@@ -78,9 +86,9 @@
         <input type="submit" value="Track Order">
     </form>
 
-    <!-- Display order details here based on the PHP script response -->
+    <!-- Display order details here based on the JavaScript logic -->
     <div id="order-details">
-        <!-- Track code will be displayed here -->
+        <!-- Track code and purchased items will be displayed here -->
     </div>
 
 </body>
