@@ -6,7 +6,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Success Page</title>
     <style>
-        /* Your existing styles remain unchanged */
+        body {
+            background-color: #3C091a;
+            color: #d3a140;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        .success-container {
+            padding: 20px;
+        }
+
+        #order-code {
+            background-color: #26384C;
+            color: #d3a140;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        #track-text {
+            margin-top: 20px;
+        }
+
+        #track-order, #back-to-home {
+            display: block;
+            margin-top: 20px;
+            color: #d3a140;
+            text-decoration: none;
+        }
     </style>
 </head>
 
@@ -22,6 +51,9 @@
             <p>Track your order by using the order code provided above.</p>
         </div>
 
+        <!-- Link to go to track.html -->
+        <a href="track.html" id="track-order">Track Order</a>
+
         <!-- Link to go back to the home page -->
         <a href="index.html" id="back-to-home">Back to Home Page</a>
     </div>
@@ -29,10 +61,15 @@
     <script>
         // Function to generate a simple order code and store it in local storage
         function generateOrderCode() {
-            // Implement your logic to generate a simple order code
-            // For example, you can use a random number
-            var orderCode = 'ORDER_' + Math.floor(Math.random() * 1000);
-            localStorage.setItem('order_code', orderCode);
+            // Check if order code is already in local storage
+            var orderCode = localStorage.getItem('order_code');
+            
+            if (!orderCode) {
+                // Generate a new order code and store it in local storage
+                orderCode = 'ORDER_' + Math.floor(Math.random() * 1000);
+                localStorage.setItem('order_code', orderCode);
+            }
+
             return orderCode;
         }
 
