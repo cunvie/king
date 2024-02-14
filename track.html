@@ -80,7 +80,8 @@
 <body>
     <h1>Order Tracking</h1>
 
-    <form action="track.php" method="post">
+    <form action="track.html" method="post" onsubmit="setOrderDetails('YOUR_TRACK_CODE', ['Item1', 'Item2'])">
+        <!-- Replace 'YOUR_TRACK_CODE' and the array with actual data or dynamically generated values -->
         <label for="orderID">Enter Order ID:</label>
         <input type="text" id="orderID" name="orderID" required>
         <input type="submit" value="Track Order">
