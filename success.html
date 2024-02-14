@@ -73,8 +73,29 @@
             return orderCode;
         }
 
-        // Display the generated order code
+        // Function to generate item statuses and store them in sessionStorage
+        function generateItemStatuses() {
+            // Define your items and their initial statuses here
+            var items = [
+                { name: "Product A", status: "Making" },
+                { name: "Product B", status: "Sending Request" },
+                // Add more items as needed
+            ];
+
+            // Check if item statuses are already in sessionStorage
+            var itemStatuses = sessionStorage.getItem('item_statuses');
+            
+            if (!itemStatuses) {
+                // Store item statuses in sessionStorage
+                sessionStorage.setItem('item_statuses', JSON.stringify(items));
+            }
+
+            return items;
+        }
+
+        // Display the generated order code and item statuses
         var orderCode = generateOrderCode();
+        var itemStatuses = generateItemStatuses();
         document.getElementById('order-code').innerHTML = '<p>Order Code: ' + orderCode + '</p>';
     </script>
 </body>
