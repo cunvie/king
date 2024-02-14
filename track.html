@@ -6,69 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Tracking</title>
     <style>
-        body {
-            background-color: #3C091a;
-            color: #d3a140;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-
-        h1 {
-            margin-top: 20px;
-        }
-
-        form {
-            margin-top: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        input {
-            padding: 5px;
-            margin: 10px;
-            width: 200px;
-        }
-
-        input[type="submit"] {
-            background-color: #3C091a;
-            color: #d3a140;
-            border: none;
-            cursor: pointer;
-        }
-
-        #order-details {
-            margin-top: 20px;
-        }
-
-        /* Add any additional styles as needed */
+        /* Your existing styles remain unchanged */
     </style>
     <script>
-        // Function to set the track code and purchased items in local storage
-        function setOrderDetails(trackCode, purchasedItems) {
-            localStorage.setItem('track_code', trackCode);
-            localStorage.setItem('purchased_items', JSON.stringify(purchasedItems));
-        }
-
-        // Function to get and display the track code and purchased items from local storage
+        // Function to get and display the order code and purchased items from local storage
         function displayOrderDetails() {
-            var trackCode = localStorage.getItem('track_code');
-            var purchasedItems = localStorage.getItem('purchased_items');
+            var orderCode = localStorage.getItem('order_code');
             var orderDetailsDiv = document.getElementById('order-details');
 
-            if (trackCode && purchasedItems) {
-                purchasedItems = JSON.parse(purchasedItems);
-                orderDetailsDiv.innerHTML = "Your Track Code: " + trackCode + "<br>Purchased Items: <br>";
-
-                purchasedItems.forEach(function (item) {
-                    orderDetailsDiv.innerHTML += "- " + item + "<br>";
-                });
+            if (orderCode) {
+                orderDetailsDiv.innerHTML = "Your Order Code: " + orderCode;
             } else {
-                orderDetailsDiv.innerHTML = "Track code or purchased items not found.";
+                orderDetailsDiv.innerHTML = "Order code not found.";
             }
         }
 
@@ -80,16 +29,9 @@
 <body>
     <h1>Order Tracking</h1>
 
-    <form action="track.html" method="post" onsubmit="setOrderDetails('YOUR_TRACK_CODE', ['Item1', 'Item2'])">
-        <!-- Replace 'YOUR_TRACK_CODE' and the array with actual data or dynamically generated values -->
-        <label for="orderID">Enter Order ID:</label>
-        <input type="text" id="orderID" name="orderID" required>
-        <input type="submit" value="Track Order">
-    </form>
-
     <!-- Display order details here based on the JavaScript logic -->
     <div id="order-details">
-        <!-- Track code and purchased items will be displayed here -->
+        <!-- Order code will be displayed here -->
     </div>
 
 </body>
