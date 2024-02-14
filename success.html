@@ -59,15 +59,15 @@
     </div>
 
     <script>
-        // Function to generate a simple order code and store it in local storage
+        // Function to generate a simple order code and store it in sessionStorage
         function generateOrderCode() {
-            // Check if order code is already in local storage
-            var orderCode = localStorage.getItem('order_code');
+            // Check if order code is already in sessionStorage
+            var orderCode = sessionStorage.getItem('order_code');
             
             if (!orderCode) {
-                // Generate a new order code and store it in local storage
+                // Generate a new order code and store it in sessionStorage
                 orderCode = 'ORDER_' + Math.floor(Math.random() * 1000);
-                localStorage.setItem('order_code', orderCode);
+                sessionStorage.setItem('order_code', orderCode);
             }
 
             return orderCode;
