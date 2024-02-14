@@ -47,6 +47,26 @@
 
         /* Add any additional styles as needed */
     </style>
+    <script>
+        // Function to set the track code in local storage
+        function setTrackCode(trackCode) {
+            localStorage.setItem('track_code', trackCode);
+        }
+
+        // Function to get and display the track code from local storage
+        function displayTrackCode() {
+            var trackCode = localStorage.getItem('track_code');
+            var orderDetailsDiv = document.getElementById('order-details');
+            if (trackCode) {
+                orderDetailsDiv.innerHTML = "Your Track Code: " + trackCode;
+            } else {
+                orderDetailsDiv.innerHTML = "Track code not found.";
+            }
+        }
+
+        // Call the function on page load
+        window.onload = displayTrackCode;
+    </script>
 </head>
 
 <body>
@@ -60,7 +80,7 @@
 
     <!-- Display order details here based on the PHP script response -->
     <div id="order-details">
-        <!-- Order details will be displayed here -->
+        <!-- Track code will be displayed here -->
     </div>
 
 </body>
