@@ -198,15 +198,21 @@
         <p>Welcome to King Cunvie! We specialize in providing high-quality clothing and fashion items. Our mission is to offer stylish and comfortable apparel for every occasion. Explore our collection and find the perfect addition to your daily style.</p>
     </div>
 
-    <div class="subscription">
-    <h2>Subscribe to our Newsletter</h2>
-    <p>Stay updated with our latest arrivals and exclusive offers!</p>
-    <form action="subscribe.php" style="margin-top: 10px;">
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email" placeholder="Enter your email" style="padding: 5px; margin: 10px; width: 200px;" required>
-        <input type="submit" value="Subscribe" style="background-color: #3C091a; color: #d3a140; padding: 5px 10px; border: none; cursor: pointer;">
+    <!DOCTYPE html>
+<html lang="en" style="background-color: #3C091a; color: #d3a140;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title style="color: #d3a140;">Subscribeto our Newsletter</title>
+</head>
+<body>
+    <form action="/subscribe" method="post">
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
     </form>
-</div>
+</body>
+</html>
+
 
 
     <div class="news-article">
